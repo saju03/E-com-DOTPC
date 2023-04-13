@@ -1,0 +1,166 @@
+<%- include('../partials/user-headder') %>
+<main class="main">
+
+  <section class="mt-50 mb-50">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9">
+          <div class="product-detail accordion-detail">
+            <div class="row mb-50">
+              <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="detail-gallery">
+                  <span class="zoom-icon"><i class="fi-rs-search"></i></span>
+                  <!-- MAIN SLIDES -->
+                  <div class="product-image-slider" style="background-color:rgb(238, 237, 237);">
+                    <% productDetails.image.forEach(element => { %>
+
+
+                    <figure class="border-radius-10">
+                      <img src="/images/<%= element %>" alt="product image">
+                    </figure>
+                    <% }) %>
+                  </div>
+                  <!-- THUMBNAILS -->
+                  <div class="slider-nav-thumbnails pl-15 pr-15" style="height: 116px;">
+                    <% productDetails.image.forEach(element => { %>
+                    <div><img src="/images/<%= element %>" alt="product image"></div>
+                    <% }) %>
+                  </div>
+                </div>
+                <!-- End Gallery -->
+                <!-- <div class="social-icons single-share">
+                                  <ul class="text-grey-5 d-inline-block">
+                                      <li><strong class="mr-10">Share this:</strong></li>
+                                      <li class="social-facebook"><a href="#"><img src="/assets/imgs/theme/icons/icon-facebook.svg" alt=""></a></li>
+                                      <li class="social-twitter"> <a href="#"><img src="/assets/imgs/theme/icons/icon-twitter.svg" alt=""></a></li>
+                                      <li class="social-instagram"><a href="#"><img src="/assets/imgs/theme/icons/icon-instagram.svg" alt=""></a></li>
+                                      <li class="social-linkedin"><a href="#"><img src="/assets/imgs/theme/icons/icon-pinterest.svg" alt=""></a></li>
+                                  </ul>
+                              </div> -->
+              </div>
+              <div class="col-md-6 col-sm-12 col-xs-12">
+                <div class="detail-info">
+                  <h2 class="title-detail"><%= productDetails.name %></h2>
+                  <div class="product-detail-rating">
+                    <div class="pro-details-brand">
+                      <span> Brand : <a href="shop-grid-right.html"><%= productDetails.brand %></a></span><br>
+                      <span> Category : <a href="shop-grid-right.html"><%= productDetails.category %></a></span>
+                    </div>
+                    <div class="product-rate-cover text-end">
+                      <div class="product-rate d-inline-block">
+                        <div class="product-rating" style="width:90%">
+                        </div>
+                      </div>
+                      <span class="font-small ml-5 text-muted"> (25 reviews)</span>
+                    </div>
+                  </div>
+                  <div class="clearfix product-price-cover">
+                    <div class="product-price primary-color float-left">
+                      <ins><span class="text-brand">₹<%= productDetails.price %></span></ins>
+                      <ins><span class="old-price font-md ml-15">₹<%= productDetails.regularPrice%></span></ins>
+                      <span class="save-price  font-md color3 ml-15">15% Off</span>
+                    </div>
+                  </div>
+                  <div class="bt-1 border-color-1 mt-15 mb-15"></div>
+                  <div class="short-desc mb-30">
+                    <p><%= productDetails.description %></p>
+                  </div>
+                  <div class="product_sort_info font-xs mb-30">
+                    <ul>
+                      <li class="mb-10"><i class="fi-rs-crown mr-5"></i> 1 Year Warranty</li>
+                      <li class="mb-10"><i class="fi-rs-refresh mr-5"></i> 7 Day Return Policy</li>
+                      <li><i class="fi-rs-credit-card mr-5"></i> Cash on Delivery available</li>
+                    </ul>
+                  </div>
+
+                  <div class="bt-1 border-color-1 mt-30 mb-30"></div>
+                  <div class="detail-extralink">
+
+                    <div class="product-extra-link2">
+
+                      <% if (locals.user) { %>
+                      <button type="submit" onclick="addToCart('<%= productDetails._id%>')" id="addtoCart" class="button button-add-to-cart">Add to cart</button>
+                      <a aria-label="Add To Wishlist" class="action-btn hover-up" onclick="addToWishlist('<%= productDetails._id%>')"><i class="fi-rs-heart"></i></a>
+
+
+                      <% } else { %>
+                      <button type="submit"  class="button button-add-to-cart">Add to cart</button>
+                      <a aria-label="Add To Wishlist" class="action-btn hover-up" href="/login"><i class="fi-rs-heart"></i></a>
+                      <% }%>
+
+
+                    </div>
+                  </div>
+
+                </div>
+                <!-- Detail Info -->
+              </div>
+            </div>
+            <div class="tab-style3">
+              <ul class="nav nav-tabs text-uppercase">
+                <li class="nav-item">
+                  <a class="nav-link active" id="Description-tab" data-bs-toggle="tab" href="#Description">Description</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="Additional-info-tab" data-bs-toggle="tab" href="#Additional-info">Additional info</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="Reviews-tab" data-bs-toggle="tab" href="#Reviews">Reviews (3)</a>
+                </li>
+              </ul>
+              <div class="tab-content shop_info_tab entry-main-content">
+                <div class="tab-pane fade show active" id="Description">
+                  <div class="">
+                    <p>Uninhibited carnally hired played in whimpered dear gorilla koala depending and much yikes off far quetzal goodness and from for grimaced goodness unaccountably and meadowlark near unblushingly crucial scallop
+                      tightly neurotic hungrily some and dear furiously this apart.</p>
+                    <p>Spluttered narrowly yikes left moth in yikes bowed this that grizzly much hello on spoon-fed that alas rethought much decently richly and wow against the frequent fluidly at formidable acceptably flapped
+                      besides and much circa far over the bucolically hey precarious goldfinch mastodon goodness gnashed a jellyfish and one however because.
+                    </p>
+                    <ul class="product-more-infor mt-30">
+                      <li><span>Type Of Packing</span> Bottle</li>
+                      <li><span>Color</span> Green, Pink, Powder Blue, Purple</li>
+                      <li><span>Quantity Per Case</span> 100ml</li>
+                      <li><span>Ethyl Alcohol</span> 70%</li>
+                      <li><span>Piece In One</span> Carton</li>
+                    </ul>
+                    <hr class="wp-block-separator is-style-dots">
+                    <p>Laconic overheard dear woodchuck wow this outrageously taut beaver hey hello far meadowlark imitatively egregiously hugged that yikes minimally unanimous pouted flirtatiously as beaver beheld above forward
+                      energetic across this jeepers beneficently cockily less a the raucously that magic upheld far so the this where crud then below after jeez enchanting drunkenly more much wow callously irrespective limpet.</p>
+                    <h4 class="mt-30">Packaging & Delivery</h4>
+                    <hr class="wp-block-separator is-style-wide">
+                    <p>Less lion goodness that euphemistically robin expeditiously bluebird smugly scratched far while thus cackled sheepishly rigid after due one assenting regarding censorious while occasional or this more crane
+                      went more as this less much amid overhung anathematic because much held one exuberantly sheep goodness so where rat wry well concomitantly.
+                    </p>
+                    <p>Scallop or far crud plain remarkably far by thus far iguana lewd precociously and and less rattlesnake contrary caustic wow this near alas and next and pled the yikes articulate about as less cackled dalmatian
+                      in much less well jeering for the thanks blindly sentimental whimpered less across objectively fanciful grimaced wildly some wow and rose jeepers outgrew lugubrious luridly irrationally attractively
+                      dachshund.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            
+           
+          </div>
+        </div>
+        <div class="col-lg-3 primary-sidebar sticky-sidebar">
+          <div class="widget-category mb-30">
+            <h5 class="section-title style-1 mb-30 wow fadeIn animated">Category</h5>
+            <ul class="categories">
+              <% categories.forEach(element => { %>
+              <li><a href="/filter-category/<%= element.catName %>"><%= element.catName %> </a></li>
+              <% }) %>
+
+
+
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('../partials/user-footer') %>
