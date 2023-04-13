@@ -2,6 +2,7 @@
 
 // DELETE PRODUCT IMAGE
 function deleteProductImage(imageId, productId) {
+  alert('dsdfsdfsdf')
   $.ajax({
     url: '/admin/edit-product/image/' + productId + '/' + imageId,
     method: "GET",

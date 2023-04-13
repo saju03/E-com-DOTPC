@@ -14,6 +14,7 @@ module.exports = {
 
 
     adminLogin: (adminData) => {
+        
         return new Promise((resolve, reject) => {
             AdminDb.find({ adminEmail: adminData.adminemail }).then((admin) => {  //it returns an array
                 console.log(admin);
@@ -21,6 +22,7 @@ module.exports = {
 
                     bcrypt.compare(adminData.password, admin[0].adminPassword).then((status) => {
                         console.log(status);
+                        console.log('/////////////////////////////////');
                         if (status) {
                             
                             Orders.aggregate([
